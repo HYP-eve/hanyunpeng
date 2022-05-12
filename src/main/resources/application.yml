@@ -1,0 +1,27 @@
+server:
+#配置注册中心的端口号
+  port: 7000
+spring:
+  #应用程序名
+  application:
+    name: eureka-server1
+eureka:
+  client:
+    #是否将自己的信息注册到Eureka Server上
+    register-with-eureka: false
+    #是否在Eureka Server中抓取信息
+    fetch-registry: false
+    #指定Eureka Server自身指向的默认注册服务URL
+    service-url:
+      defaultZone: http://server2:7001/eureka/
+      #指定实例的主机名
+  instance:
+    hostname: server1
+#    每隔20s想中心发送续约操作（心跳）
+    lease-renewal-interval-in-seconds: 20
+#    每隔120s看一下是否下线 如果下线就剔除
+    lease-expiration-duration-in-seconds: 120
+
+#    自我保护机制  防止误删
+  server:
+    enable-self-preservation: false
