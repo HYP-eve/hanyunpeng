@@ -1,0 +1,13 @@
+server:
+  port: 9005
+spring:
+  application:
+    name: springcloud-config-server
+  cloud:
+    config:
+      server:
+        get:
+          uri: https://github.com/HYP-eve/hanyunpeng.git
+          search-path: /demo-config-server/src/main/resources/
+          username: 990293351@qq.com
+          password: 123456.hyp
